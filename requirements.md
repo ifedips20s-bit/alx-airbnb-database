@@ -1,1 +1,0 @@
-![alt text](airbnb_erd.png)
