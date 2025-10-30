@@ -1,3 +1,21 @@
+-- Before creating indexes
+EXPLAIN ANALYZE
+SELECT *
+FROM bookings b
+JOIN users u ON b.user_id = u.id
+WHERE b.check_in_date >= '2025-01-01';
+
+-- Create index
+CREATE INDEX idx_bookings_user_id ON bookings(user_id);
+CREATE INDEX idx_bookings_check_in_date ON bookings(check_in_date);
+
+-- After creating indexes
+EXPLAIN ANALYZE
+SELECT *
+FROM bookings b
+JOIN users u ON b.user_id = u.id
+WHERE b.check_in_date >= '2025-01-01';
+
 -- Indexes for Users
 CREATE INDEX idx_users_id ON users(id);
 
