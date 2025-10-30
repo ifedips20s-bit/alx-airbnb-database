@@ -13,6 +13,7 @@ SELECT
     p.id AS property_id,
     p.name AS property_name,
     COUNT(b.id) AS total_bookings,
+    RANK() OVER (ORDER BY COUNT(b.id) DESC) AS property_rank
     ROW_NUMBER() OVER (ORDER BY COUNT(b.id) DESC) AS row_number
 FROM properties p
 LEFT JOIN bookings b 
