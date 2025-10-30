@@ -24,6 +24,8 @@ SELECT
 FROM properties p
 LEFT JOIN reviews r 
     ON p.id = r.property_id;
+    ORDER BY p.name, r.created_at;
+
 
 
 
