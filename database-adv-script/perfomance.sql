@@ -1,3 +1,4 @@
+EXPLAIN ANALYZE
 SELECT 
     b.id AS booking_id,
     b.check_in_date,
@@ -18,3 +19,5 @@ FROM bookings b
 JOIN users u ON b.user_id = u.id
 JOIN properties p ON b.property_id = p.id
 JOIN payments pay ON pay.booking_id = b.id;
+WHERE b.check_in_date >= '2025-01-01'
+  AND pay.status = 'Completed';
